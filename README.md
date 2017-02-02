@@ -19,13 +19,12 @@ react-native run-android / run-ios
 ## Screenshot
 
 ![home-scroll](screenshots/home-scroll.gif)
-
 ![add](screenshots/add.gif)
 ![scroll](screenshots/scroll.gif)
 
 ![home](screenshots/home.png)
 
-![location](screenshots/location.png)
+![comment](screenshots/comment.png)
 
 ![order](screenshots/order.png)
 

@@ -1,0 +1,12 @@
+.DS_Store
+build/
+.idea
+.gradle
+/*.png
+local.properties
+*.iml
+
+# node.js
+#
+node_modules/
+npm-debug.log
