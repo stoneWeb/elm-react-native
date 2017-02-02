@@ -1,5 +1,5 @@
 # elm-react-native
-This is a high simulating eleme app, implemented using [**React Native**](http://facebook.github.io/react-native/). this app can run on ios and Android, this app has no use to any API, no data, it is a UI App, this app with more than 80% of UI in common. this is a demo project.
+This is a high simulating eleme app [**eleme website**](https://www.ele.me/), implemented by [**React Native**](http://facebook.github.io/react-native/). This app can run on ios and Android, the app has no use to any API, no data, it is a UI display App, the UI of the app has more than 95% in common with eleme app. the app is a demo project.
 
 
 ## App uses these dependencies

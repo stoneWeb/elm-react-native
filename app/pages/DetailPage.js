@@ -1,3 +1,7 @@
+/**
+ * @author Lei
+ * @repo https://github.com/stoneWeb/elm-react-native
+ */
 'use strict';
 
 import React, { Component } from 'react'
@@ -125,7 +129,7 @@ export default class DetailPage extends Component {
     if(Platform.OS == "android"){
       style.height = height + 80
     }
-    
+
     return (
       <Animated.View style={[styles.topView, style]}>
         <View style={{

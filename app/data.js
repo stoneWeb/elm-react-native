@@ -1,6 +1,3 @@
-'use strict';
-
-
 let d = {
   list: [
     {

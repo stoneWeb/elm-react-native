@@ -1,17 +1,3 @@
-'use strict';
-/*let source = {
-  ad1: require('./images/ad1.png'),
-  avatar: require('./images/avatar.jpg')
-};
-["h|10","hot|4","sale|4","nice|8"].forEach((item) => {
-    let e = item.split("|")
-    Array.from({length: e[1]*1}).forEach((n, i) => {
-      let path = './images/h_0.png'
-      source[e[0]+i] = require(path)
-    })
-})
-*/
-
 export default {
   ad1: require('./images/ad1.png'),
   avatar: require('./images/avatar.jpg'),
