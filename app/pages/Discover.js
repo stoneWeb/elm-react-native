@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 import {
   Text,
   View,
-  WebView,
   StyleSheet
 } from 'react-native'
 import NavBar from '../component/NavBar'

@@ -87,7 +87,6 @@ export default class DetailPage extends Component {
   onAdd(data){
     this.state.runBtn.setValue(0)
     let { inputRange, outputX, outputY } = data.path
-    //AlertIOS.alert("title", outputX.toString())
     this.setState({
       addBtnY: data.y,
       animateBtnX: this.state.runBtn.interpolate({
@@ -126,10 +125,7 @@ export default class DetailPage extends Component {
     if(Platform.OS == "android"){
       style.height = height + 80
     }
-    /*let scrollY = this.refs.goodsList.state.scrollY.interpolate({
-      inputRange: [0, marginTop],
-      outputRange: [0, -marginTop]
-    })*/
+    
     return (
       <Animated.View style={[styles.topView, style]}>
         <View style={{

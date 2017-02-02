@@ -32,7 +32,6 @@ export default class ShopBar extends Component{
           easing: Easing.elastic(3)
       }).start()
     }
-    //<BlurView blurType="dark" blurAmount={20} style={styles.blur}>
     render(){
       let { list, lens } = this.props
       return (
@@ -72,7 +71,7 @@ export default class ShopBar extends Component{
       )
     }
 }
-//<TabView navigator={this.props.navigator}/>
+
 const styles = StyleSheet.create({
   cartView: {
     position: "absolute",

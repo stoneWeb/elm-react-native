@@ -66,15 +66,13 @@ export default class LbsModal extends Component {
     navigator.geolocation.getCurrentPosition(
       (position) => {
         var initialPosition = JSON.stringify(position);
-        AlertIOS.alert("title",initialPosition)
+        console.log("title",initialPosition)
         this.setState({initialPosition});
       },
       (error) => AlertIOS.alert("title",JSON.stringify(error)),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
     )*/
   }
-
-  //<Icon name="ios-locate-outline" size={px2dp(15)} color="#0398ff" />
   render(){
     return (
       <Modal

@@ -211,9 +211,6 @@ export default class HomePage extends Component {
         </View>
       )
     }
-    /*
-
-    */
     return (
       <Swiper
         height={h*2.4}
@@ -447,7 +444,7 @@ export default class HomePage extends Component {
     )
   }
 }
-//{this._renderFixedSearch()}
+
 const styles = StyleSheet.create({
   header: {
     backgroundColor: "#0398ff",
