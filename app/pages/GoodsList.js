@@ -27,31 +27,6 @@ let {width, height} = Dimensions.get('window')
 const MAIN_HEIGHT = height - (Platform.OS === 'ios' ? 64 : 42) - 36
 const LABEL_HEIGHT = 25
 const PIC_SIZE = px2dp(60)
-const getPaths = (OLEFT, OTOP, TLEFT, TTOP) => {
-  const CURVATURE = .003, speed = 500//166.67
-  let diffX = TLEFT - OLEFT,
-      diffY = TTOP - OTOP;
-  let b = ( diffY - CURVATURE * diffX * diffX ) / diffX,
-      startx = 0,
-      rate = diffX > 0? 1: -1,
-      inputRange = [], outputX = [], outputY = [];
-  let step = () => {
-      let tangent = 2 * CURVATURE * startx + b;
-      startx = startx + rate * Math.sqrt(speed / (tangent * tangent + 1));
-      if ((rate == 1 && startx > diffX) || (rate == -1 && startx < diffX)) {
-        startx = diffX;
-      }
-      let x = startx, y = CURVATURE * x * x + b * x;
-      inputRange.push(outputX.length)
-      outputX.push(x)
-      outputY.push(y)
-      if (startx !== diffX) {
-        step()
-      }
-    }
-    step()
-    return { inputRange, outputX, outputY }
-}
 
 export default class GoodsList extends Component {
   constructor(props){
@@ -69,7 +44,7 @@ export default class GoodsList extends Component {
         x: px,
         y: py,
         data: obj,
-        path: getPaths(px, py, 26, height - 60)
+        pos: [px, py, 26, height - 60]
       })
     })
   }

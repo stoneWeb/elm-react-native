@@ -14,6 +14,7 @@ Welcome issues, PR, star.
 ## App uses these dependencies
 - [react-native-blur](https://github.com/react-native-fellowship/react-native-blur)
 - [react-native-swiper](https://github.com/leecade/react-native-swiper)
+- [react-native-parabolic](https://github.com/stoneWeb/react-native-parabolic)
 - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 - [react-native-tab-navigator](https://github.com/exponent/react-native-tab-navigator)
 - [react-native-splash-screen](https://github.com/crazycodeboy/react-native-splash-screen)

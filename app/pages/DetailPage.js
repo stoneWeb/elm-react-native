@@ -20,6 +20,7 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
+import Parabolic from 'react-native-parabolic'
 import px2dp from '../util'
 import LocalImg from '../images'
 import data from '../data'
@@ -39,7 +40,7 @@ export default class DetailPage extends Component {
       titleOpacity: 0,
       activeOpacity: 1,
       headOpacity: 1,
-      addBtnY: -100,
+      addBtnY: -9999,
       animateBtnX: 0,
       animateBtnY: 0,
       runBtn: new Animated.Value(0),
@@ -48,6 +49,7 @@ export default class DetailPage extends Component {
       bgY: 0,
       bgScale: 1,
       viewRef: 0,
+      b: {},
       goods: data.goods,
       data: {
         name: "田老师红烧肉（知春路店）",
@@ -89,33 +91,30 @@ export default class DetailPage extends Component {
     this.props.navigator.pop()
   }
   onAdd(data){
-    this.state.runBtn.setValue(0)
-    let { inputRange, outputX, outputY } = data.path
+    let { pos } = data
     this.setState({
       addBtnY: data.y,
-      animateBtnX: this.state.runBtn.interpolate({
-        inputRange, outputRange: outputX
-      }),
-      animateBtnY: this.state.runBtn.interpolate({
-        inputRange, outputRange: outputY
-      })
+      b: {
+        startX: pos[0],
+        startY: pos[1],
+        endX: pos[2],
+        endY: pos[3]
+      }
     })
-    Animated.timing(this.state.runBtn, {
-        toValue: inputRange.length,
-        duration: 350
-    }).start(() => {
-      let { selected, lens } = this.state
-      let num = (lens[data.data.key]||0)+1
-      let price = lens.maxPrice || 0
-      let length = lens.length || 0
-      lens[data.data.key] = num
-      lens.maxPrice = price+data.data.price
-      lens.length = length + 1
-      selected.push(data.data)
-      this.state.runBtn.setValue(0)
-      this.setState({ addBtnY: -100, selected, lens})
-      this.refs.shopbar.runAnimate()
-    })
+    this.refs["parabolic"].run(data)
+  }
+  parabolicEnd(data){
+    let { selected, lens } = this.state
+    let num = (lens[data.data.key]||0)+1
+    let price = lens.maxPrice || 0
+    let length = lens.length || 0
+    lens[data.data.key] = num
+    lens.maxPrice = price+data.data.price
+    lens.length = length + 1
+    selected.push(data.data)
+    this.state.runBtn.setValue(0)
+    this.setState({ addBtnY: -9999, selected, lens})
+    this.refs.shopbar.runAnimate()
   }
   renderGoods(){
     let marginTop = 18+px2dp(80+this.state.data.activities.length*18)
@@ -239,21 +238,36 @@ export default class DetailPage extends Component {
           rightIcon="ios-more"
           rightPress={()=>{}}
         />
-        <Animated.View style={[styles.tmpBtn, {
-          top: this.state.addBtnY,
-          transform: [
-            { translateX: this.state.animateBtnX },
-            { translateY: this.state.animateBtnY }
-          ]
-        }]}>
-          <View style={{width:px2dp(14), height:px2dp(14), backgroundColor:"#3190e8", borderRadius: px2dp(7), overflow:"hidden"}}></View>
-        </Animated.View>
+        <Parabolic
+          ref={"parabolic"}
+          style={[styles.tmpBtn, {top: this.state.addBtnY}]}
+          startX={this.state.b.startX}
+          startY={this.state.b.startY}
+          endX={this.state.b.endX}
+          endY={this.state.b.endY}
+          renderChildren={() => {
+            return (
+              <View style={{width:px2dp(14), height:px2dp(14), backgroundColor:"#3190e8", borderRadius: px2dp(7), overflow:"hidden"}}></View>
+            )
+          }}
+          animateEnd={this.parabolicEnd.bind(this)}
+        />
         <ShopBar ref={"shopbar"} list={this.state.selected} lens={this.state.lens}/>
       </View>
     )
   }
 }
-
+/*
+<Animated.View style={[styles.tmpBtn, {
+  top: this.state.addBtnY,
+  transform: [
+    { translateX: this.state.animateBtnX },
+    { translateY: this.state.animateBtnY }
+  ]
+}]}>
+  <View style={{width:px2dp(14), height:px2dp(14), backgroundColor:"#3190e8", borderRadius: px2dp(7), overflow:"hidden"}}></View>
+</Animated.View>
+*/
 const styles = StyleSheet.create({
   head:{
     position: "absolute",
