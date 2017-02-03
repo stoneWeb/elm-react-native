@@ -1,6 +1,9 @@
 # elm-react-native
 
-[![React Native](https://img.shields.io/badge/react--native-v0.40.x-05A5D1.svg)](https://facebook.github.io/react-native)[![GitHub issues](https://img.shields.io/github/issues/stoneWeb/elm-react-native.svg)](https://github.com/stoneWeb/elm-react-native)[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/attentiveness/reading/pulls)[![MIT](https://img.shields.io/dub/l/vibe-d.svg)](http://opensource.org/licenses/MIT)
+[![React Native](https://img.shields.io/badge/react--native-v0.40.x-05A5D1.svg)](https://facebook.github.io/react-native)
+[![GitHub issues](https://img.shields.io/github/issues/stoneWeb/elm-react-native.svg)](https://github.com/stoneWeb/elm-react-native)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/attentiveness/reading/pulls)
+[![MIT](https://img.shields.io/dub/l/vibe-d.svg)](http://opensource.org/licenses/MIT)
 
 This is a high simulating eleme app [**(eleme website)**](https://www.ele.me/), implemented by [**React Native**](http://facebook.github.io/react-native/). This app can run on iOS and Android, the app has no use to any API, no data, it is a UI display App, the UI of the app has more than 95% in common with eleme app. This is a learning React Native process, it is a demo project. Welcome issues, PR, star.
 
