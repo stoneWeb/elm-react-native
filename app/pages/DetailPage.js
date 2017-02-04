@@ -93,15 +93,9 @@ export default class DetailPage extends Component {
   onAdd(data){
     let { pos } = data
     this.setState({
-      addBtnY: data.y,
-      b: {
-        startX: pos[0],
-        startY: pos[1],
-        endX: pos[2],
-        endY: pos[3]
-      }
+      addBtnY: data.y
     })
-    this.refs["parabolic"].run(data)
+    this.refs["parabolic"].run(pos, data)
   }
   parabolicEnd(data){
     let { selected, lens } = this.state
@@ -241,10 +235,6 @@ export default class DetailPage extends Component {
         <Parabolic
           ref={"parabolic"}
           style={[styles.tmpBtn, {top: this.state.addBtnY}]}
-          startX={this.state.b.startX}
-          startY={this.state.b.startY}
-          endX={this.state.b.endX}
-          endY={this.state.b.endY}
           renderChildren={() => {
             return (
               <View style={{width:px2dp(14), height:px2dp(14), backgroundColor:"#3190e8", borderRadius: px2dp(7), overflow:"hidden"}}></View>
